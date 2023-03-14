@@ -1,4 +1,4 @@
-import Head from 'next/Head'
+import Head from 'next/head'
 import NavLink from './NavLink'
 
 export default function Navbar() {
