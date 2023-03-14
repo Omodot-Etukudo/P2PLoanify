@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import NavLink from './NavLink'
-import { HomeIcon, BriefcaseIcon, UserCircleIcon, DownloadIcon } from "@heroicons/react/solid"
+import { HomeIcon, BriefcaseIcon, UserCircleIcon, MailIcon } from "@heroicons/react/solid"
 
 export default function Navbar() {
 
@@ -36,7 +36,7 @@ export default function Navbar() {
 
         <nav className='flex justify-center items-center fixed py-4 px-6 z-50 bottom-1 left-0 w-full md:hidden lg:hidden xl:hidden '>
             <div className='flex justify-between items-center px-4 py-4 w-full rounded-full bg-gray-900 shadow-md border border-gray-800 border-dashed'>
-                <NavLink isActive Icon={<HomeIcon/>}/><NavLink Icon={<BriefcaseIcon/>} /><NavLink Icon={<DownloadIcon/>} /><NavLink Icon={<UserCircleIcon/>} />
+                <NavLink isActive Icon={<HomeIcon/>}/><NavLink Icon={<BriefcaseIcon/>} /><NavLink Icon={<MailIcon/>} /><NavLink Icon={<UserCircleIcon/>} />
             </div>
 
         </nav>
