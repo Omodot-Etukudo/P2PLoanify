@@ -9,7 +9,18 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+
+      fontSize:{
+        '7.5xl':'4.75rem'
+      },
+      colors:{
+        'linkedin':'#0072b1',
+        'twitter':'#00acee',
+        'github':'#6e5494'
+      }
+
+    },
   },
   plugins: [],
 }
