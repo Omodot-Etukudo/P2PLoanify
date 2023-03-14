@@ -40,7 +40,7 @@ export default function Hero() {
                         <Image alt="Mouse-Icon" className="absolute -left-8 -top-8" width={40} height={40} src="/assets/mouse-icon.png" />
                     </motion.div>
 
-                    <div className="flex flex-col space-y-2 relative">
+                    <div className="flex flex-col space-y-4 relative">
                         <h1 className="font-heading lg:text-8xl md:text-7.5xl text-6xl font-bold leading-none text-gray-100">i design & build product experiences that are <span className={`${COLORS[index % COLORS.length]} relative `}><span><TextTransition direction="down" inline={true} springConfig={presets.wobbly} >{TEXTS[index % TEXTS.length]}</TextTransition ></span> <div className="absolute right-0 top-6 h-3/4 w-full bg-purple-500 bg-opacity-10 border-purple-500 border border-dashed "></div></span></h1>
                         <p className="text-gray-300 leading-relaxed font-light lg:text-lg md:text-lg text-base">my goal is always to create innovative and intuitive product experiences that delight and inspire but never interfere with the unique senses of <span className=" text-pink-300">interaction</span> and <span className="text-green-200">natural responses.</span> I am a software product designer that creates human-centered products to suit collective user needs.</p>
                         <Image alt="Star-Icon" src="/assets/star-icon.png" width={50} height={50} className="absolute left-32 bottom-36 opacity-70 lg:block md:hidden hidden"  />
@@ -50,7 +50,7 @@ export default function Hero() {
                     
                     <div className="flex flex-col space-y-4 justify-start items-start md:flex-row md:space-x-4 lg:flex-row lg:space-x-4 lg:space-y-0  w-full">
                         <Button isPrimary text="my work" linkTo="" />
-                        <Button text="get in touch" linkTo="" />
+                        <Button text="say hello" linkTo="" />
                     </div>
                 </div>
                 

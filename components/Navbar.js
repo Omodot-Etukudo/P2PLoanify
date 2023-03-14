@@ -18,7 +18,7 @@ export default function Navbar() {
         </Head>
         
         <nav className='z-50 flex justify-between items-center lg:py-6 md:py-6 py-6 lg:px-20 md:px-14 px-6 w-full text-gray-100 bg-gray-900'>
-            <div className='w-24'><a className='font-semibold text-yellow-400'>omodot<span className='text-blue-300 font-gray-900 text-lg'>.</span></a></div>
+            <div className='w-24'><a className='lg:font-semibold md:font-semibold font-normal text-yellow-400'>omodot<span className='text-blue-300 font-gray-900 text-lg'>.</span></a></div>
             <ul className='lg:flex md:flex hidden flex-row space-x-12 justify-center items-center '>
 
 
@@ -30,7 +30,7 @@ export default function Navbar() {
             
             </ul>
 
-            <a className='font-semibold text-yellow-400'>hello@omodot.io</a>
+            <a className='lg:font-semibold md:font-semibold font-normal text-yellow-400'>hello@omodot.io</a>
         </nav>
 
       </div> 
