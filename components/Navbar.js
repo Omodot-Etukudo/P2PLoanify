@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import NavLink from './NavLink'
+import { HomeIcon, BriefcaseIcon, UserCircleIcon, DownloadIcon } from "@heroicons/react/solid"
 
 export default function Navbar() {
 
@@ -17,7 +18,7 @@ export default function Navbar() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         
-        <nav className='z-50 flex justify-between items-center lg:py-6 md:py-6 py-6 lg:px-20 md:px-14 px-6 w-full text-gray-100 bg-gray-900'>
+        <nav className=' hidden  z-50 md:flex lg:flex xl:flex justify-between items-center lg:py-6 md:py-6 py-6 lg:px-20 md:px-14 px-6 w-full text-gray-100'>
             <div className='w-24'><a className='lg:font-semibold md:font-semibold font-normal text-yellow-400'>omodot<span className='text-blue-300 font-gray-900 text-lg'>.</span></a></div>
             <ul className='lg:flex md:flex hidden flex-row space-x-12 justify-center items-center '>
 
@@ -31,6 +32,13 @@ export default function Navbar() {
             </ul>
 
             <a className='lg:font-semibold md:font-semibold font-normal text-yellow-400'>hello@omodot.io</a>
+        </nav>
+
+        <nav className='flex justify-center items-center fixed py-4 px-6 z-50 bottom-1 left-0 w-full md:hidden lg:hidden xl:hidden '>
+            <div className='flex justify-between items-center px-4 py-4 w-full rounded-full bg-gray-900 shadow-md border border-gray-800 border-dashed'>
+                <NavLink isActive Icon={<HomeIcon/>}/><NavLink Icon={<BriefcaseIcon/>} /><NavLink Icon={<DownloadIcon/>} /><NavLink Icon={<UserCircleIcon/>} />
+            </div>
+
         </nav>
 
       </div> 
