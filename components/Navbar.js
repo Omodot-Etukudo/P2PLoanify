@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import NavLink from './NavLink'
-import { HomeIcon, BriefcaseIcon, UserCircleIcon, MailIcon } from "@heroicons/react/solid"
+import { HomeIcon, BriefcaseIcon, UserCircleIcon, PaperAirplaneIcon } from "@heroicons/react/solid"
 
 export default function Navbar() {
 
@@ -34,9 +34,9 @@ export default function Navbar() {
             <a className='lg:font-semibold md:font-semibold font-normal text-yellow-400'>hello@omodot.io</a>
         </nav>
 
-        <nav className='flex justify-center items-center fixed py-4 px-6 z-50 bottom-1 left-0 w-full md:hidden lg:hidden xl:hidden '>
-            <div className='flex justify-between items-center px-4 py-4 w-full rounded-full bg-gray-900 shadow-md border border-gray-800 border-dashed'>
-                <NavLink isActive Icon={<HomeIcon/>}/><NavLink Icon={<BriefcaseIcon/>} /><NavLink Icon={<MailIcon/>} /><NavLink Icon={<UserCircleIcon/>} />
+        <nav className='flex justify-center items-center fixed py-4 px-4 z-50 bottom-0.5 left-0 w-full md:hidden lg:hidden xl:hidden '>
+            <div className='flex justify-between items-center px-4 py-2 w-full rounded-full bg-gray-900 shadow-2xl border border-gray-800 border-dashed'>
+                <NavLink isActive name="home" Icon={<HomeIcon/>}/><NavLink name="my work" Icon={<BriefcaseIcon/>} /><NavLink name="about me" Icon={<UserCircleIcon/>} /><NavLink name="say hello" Icon={<PaperAirplaneIcon/>} />
             </div>
 
         </nav>
