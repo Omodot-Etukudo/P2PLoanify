@@ -38,7 +38,7 @@ function Footer() {
             <h4 className='font-heading lg:text-20xl md:text-20xl text-20xl font-bold leading-none text-yellow-400 text-center'>Omodot Etukudo</h4>
         </div>
         <div className='w-full lg:py-8 md:py-8 py-20 mb-8 flex  justify-center items-center  text-gray-100'>
-            <p>Designed and built with intention and &#10084; by me</p>
+            <p>Designed and built with &#10084; by me</p>
         </div>
     </div>
   )

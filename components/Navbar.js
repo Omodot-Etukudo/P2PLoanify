@@ -41,6 +41,10 @@ export default function Navbar() {
 
         </nav>
 
+        <div className="fixed flex top-0 left-0 w-full md:hidden lg:hidden h-10 bg-gray-900 z-50">
+            
+        </div>
+
       </div> 
       
     )
