@@ -8,7 +8,7 @@ import Footer from '../../components/home/Footer'
 export default function Home() {
   return (
     
-    <div>
+    <div className='bg-gradient-to-br from-gray-900 via-gray-900 to-blue-900'>
         <Navbar/>
         <Hero/>
 
