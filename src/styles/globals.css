@@ -8,7 +8,6 @@
 /* add custom styles here */
 body{
   font-family: 'Lexend', sans-serif;
-
   --tw-gradient-to: rgb(17 24 39 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), #111827, var(--tw-gradient-to);
 }
