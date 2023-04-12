@@ -9,6 +9,7 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    //Add extension here
     extend: {
       spacing:{
         '128': '32rem',
@@ -17,13 +18,6 @@ module.exports = {
         '7.5xl':'4.75rem',
         '20xl':'14rem'
       },
-      colors:{
-        'linkedin':'#0072b1',
-        'twitter':'#00acee',
-        'github':'#6e5494',
-        'instagram':'#e1306c',
-      }
-
     },
   },
   plugins: [],
