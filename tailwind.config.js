@@ -18,6 +18,10 @@ module.exports = {
         '7.5xl':'4.75rem',
         '20xl':'14rem'
       },
+      colors:{
+        'primary':'#B2FFA4',
+        'main':'#0C0F1C',
+      }
     },
   },
   plugins: [],

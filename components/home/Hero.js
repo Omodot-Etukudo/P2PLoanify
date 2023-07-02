@@ -34,7 +34,7 @@ export default function Hero() {
      <div className=" sm:px-6 lg:h-full md:h-full h-full lg:px-20 md:px-14 px-6 lg:py-24 md:py-12 py-20  lg:grid lg:grid-flow-col lg:grid-cols-6 md:grid md:grid-flow-col md:grid-cols-2 gap-10 flex flex-col space-y-6">
             <div className="lg:col-span-4 flex flex-col space-y-24 justify-center items-start">
                 <div className="flex flex-col space-y-6 justify-center items-start">
-                    <motion.div initial={{ scale:0 , x:-500 }} animate={{scale:1, x:0}} transition={{ type: "spring", stiffness: 80, damping: 10  }} className=" w-40 px-3 py-1 bg-yellow-400 text-gray-900 text-sm  border-2 border-white flex justify-between items-center relative rounded-full">
+                    <motion.div initial={{ scale:0 , x:-500 }} animate={{scale:1, x:0}} transition={{ type: "spring", stiffness: 80, damping: 10  }} className=" w-40 px-3 py-1 bg-yellow-400 text-gray-900 text-sm  border border-white flex justify-between items-center relative rounded-full">
                         <p>hi, i&apos;m omodot</p>
                         <MicrophoneIcon width={20}  height={20}/>
                         <Image alt="Mouse-Icon" className="absolute -left-7 -top-7" width={40} height={40} src="/assets/mouse-icon.png" />

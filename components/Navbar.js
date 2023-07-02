@@ -1,16 +1,53 @@
 import Head from 'next/head'
-import NavLink from './NavLink'
-import { HomeIcon, BriefcaseIcon, UserCircleIcon, PaperAirplaneIcon } from "@heroicons/react/solid"
+import {  CubeIcon } from "@heroicons/react/solid"
+import Link from 'next/link'
+import { useAccount } from 'wagmi'
+import { useRouter } from 'next/router'
+import { Web3Button } from '@web3modal/react'
+import Web3 from "web3"
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 export default function Navbar() {
 
-    
+//Initialize React Router
+const router = useRouter()
+
+const [account, setAccount] = useState();  
+const [network, setNetwork] = useState();
+const [balance, setBalance] = useState();
+const { isConnected , address } = useAccount();
+const walletAddress = address;
+
+useEffect(() => {
+    async function loadAccount() {    
+        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+        setAccount(accounts[0]);     
+    }
+
+    async function loadBalance() {
+        const web3 = new Web3(window.ethereum);
+        const network = await web3.eth.net.getNetworkType();
+        const balance = await web3.eth.getBalance(walletAddress);
+        setNetwork(network);
+        setBalance(balance);
+    }
+
+    if (isConnected) {
+        loadAccount();
+        loadBalance();
+        const interval = setInterval(loadBalance, 1000);
+        return () => clearInterval(interval);
+    }
+}, [isConnected, walletAddress]);
+
+ 
     return (
       
      <div>  
         <Head>
-            <title>Omodot Etukudo | Product Designer & Developer</title>
-            <meta name="description" content="Portfolio website for Omodot Etukudo" />
+            <title>P2P Loanify</title>
+            <meta name="description" content="P2P Platform for lending and borrowing crypto." />
             <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover" />
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=""/>
@@ -18,32 +55,38 @@ export default function Navbar() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         
-        <nav className=' hidden  z-50 md:flex lg:flex xl:flex justify-between items-center lg:py-6 md:py-6 py-6 lg:px-20 md:px-14 px-6 w-full text-gray-100'>
-            <div className='w-24'><a className='lg:font-semibold md:font-semibold font-normal text-yellow-400'>omodot<span className='text-blue-300 font-gray-900 text-lg'>.</span></a></div>
-            <ul className='lg:flex md:flex hidden flex-row space-x-12 justify-center items-center '>
-
-
-                <NavLink isActive name="home" />
-                <NavLink name="work" />
-                <NavLink name="about" />
-                <NavLink name="resume" />
+        <nav className='fixed left-0 z-40  lg:py-2 md:py-2 py-4 lg:px-8 px-4 w-full text-gray-100 flex justify-center items-center'>
+            <div className='w-full  flex md:flex lg:flex xl:flex justify-between items-center lg:bg-main lg:px-12 lg:py-5 lg:bg-opacity-95 lg:border lg:border-gray-800 lg:rounded-full lg:shadow-2xl'>
+                <div className='flex space-x-4 justify-center items-center'>
                 
+                    <div className='flex justify-center items-center space-x-1 text-white'><CubeIcon className='w-10 h-10 ' /><Link href="/" className='font-bold  text-2xl'>Loanify</Link></div>
+                
+                    <ul className={isConnected?'lg:flex md:flex hidden flex-row space-x-10 justify-center items-center pl-20':"hidden"}>
+
+                        
+                        <Link href="/allOffers" className={router.pathname=='/allOffers' ? "font-semibold text-primary text-xs hidden md:flex lg:flex":"font-semibold text-gray-300 text-xs hidden md:flex lg:flex"}>All Offers</Link> 
+
+                        <Link href="/myOffers"  className={router.pathname=='/myOffers' ? "font-semibold text-primary text-xs hidden md:flex lg:flex":"font-semibold text-gray-300 text-xs hidden md:flex lg:flex"}><p className={router.pathname=='/myOffers'? "text-primary":"text-gray-300"}>My Offers</p></Link> 
+
+                        <Link href="/myLoans" className={router.pathname=='/myLoans' ? "font-semibold text-primary text-xs hidden md:flex lg:flex":"font-semibold text-gray-300 text-xs hidden md:flex lg:flex"}><p className={router.pathname=='/myLoans'? "text-primary":"text-gray-300"}>My Loans</p></Link> 
+
+                        <Link href="/activeLoans" className={router.pathname=='/activeLoans' ? "font-semibold text-primary text-xs hidden md:flex lg:flex":"font-semibold text-gray-300 text-xs hidden md:flex lg:flex"}><p className={router.pathname=='/activeLoans'? "text-primary":"text-gray-300"}>Active Loans</p></Link> 
+                            
+                    </ul>
+                        
+                </div>
+                <div className={ 'flex space-x-4 justify-center items-center'}>
+                    <div className={ isConnected? 'bg-slate-900 rounded-full px-2 py-1.5 text-white flex justify-center items-center space-x-2 text-xs':"hidden"}><div><Image width={15} height={15} src="/./assets/ethereum.png" /></div><p className=' whitespace-nowrap'>{(balance/1e18).toFixed(2)} eth</p></div>
+                    <Web3Button className="bg-primary" />
+                </div>
             
-            </ul>
-
-            <a className='lg:font-semibold md:font-semibold font-normal text-yellow-400'>hello@omodot.io</a>
-        </nav>
-
-        <nav className='flex justify-center items-center fixed py-4 px-4 z-50 bottom-0.5 left-0 w-full md:hidden lg:hidden xl:hidden '>
-            <div className='flex justify-between items-center px-4 py-2 w-full rounded-full bg-gray-900 shadow-2xl border border-gray-800 border-dashed'>
-                <NavLink isActive name="home" Icon={<HomeIcon/>}/><NavLink name="my work" Icon={<BriefcaseIcon/>} /><NavLink name="about me" Icon={<UserCircleIcon/>} /><NavLink name="say hello" Icon={<PaperAirplaneIcon/>} />
             </div>
-
+            
+        
         </nav>
 
-        <div className="fixed flex top-0 left-0 w-full md:hidden lg:hidden h-10 bg-gray-900 z-50">
-            
-        </div>
+        
+
 
       </div> 
       

@@ -1,29 +1,35 @@
 
-import Link from "next/link"
+export default function Button({status, onClick}) {
 
-export default function Button({isPrimary, text , linkTo}) {
-
+    let color;
+    let text;
+    switch (status) {
+        case 'Delete':
+        color = 'px-6 py-3 rounded-full text-sm text-red-400 border border-red-400 bg-main transition-all duration-200';
+        text = "Delete"
+        break;
+        case 'Repay':
+        color = 'px-6 py-3 rounded-full text-sm text-primary bg-main border border-primary';
+        text="Repay"
+        break;
+        case 'Empty':
+        color = 'hidden';
+        text = "None"
+        break;
+        default:
+        color = 'px-6 py-3 rounded-full text-sm text-main bg-primary hover:bg-green-400 transition-all duration-200';
+        text = "Get Loan"
+    }
+    
     
     return (
-    <Link href={linkTo} className="w-full md:w-64 lg:w-64">
-        <div className="relative w-full md:w-64 lg:w-64">
-            <div className={isPrimary? "flex justify-center items-center text-base w-full md:w-64 lg:w-64 lg:px-12 md:px-12 py-4 bg-yellow-400 rounded-full": "flex justify-center items-center text-base w-full md:w-64 lg:w-64 lg:px-12 md:px-12 py-4 bg-none border-gray-100 border text-white rounded-full " }>
-                {text}
-            </div>
-            <div className={ isPrimary? "rounded-full border-dashed border border-yellow-400 opacity-70 w-full md:w-64 lg:w-64 h-full absolute -left-2 -bottom-2 hover:translate-y-1 hover:-translate-x-1 transition duration-150 ease-in" : "rounded-full  border-dashed border border-gray-100 opacity-70 w-full md:w-64 lg:w-64 h-full absolute -left-2 -bottom-2 hover:translate-y-1 hover:-translate-x-1 transition duration-150 ease-in"}>
-
-            </div>
-        </div>
-     </Link>
-      
-    )
+        <>
+          {status && (
+            <button onClick={onClick} className={color}>
+              {text}
+            </button>
+            
+          )}   
+        </>
+      );
 }  
-    
-    
-    
-    
-    
-    
-    
-    
-    
